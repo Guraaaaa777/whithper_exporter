@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "withper-exporter"
+version = "0.1.0"
+description = "Whisper の文字起こし結果を一定時間ごとにテキストファイルへ書き出すツール"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+withper-exporter = "withper_exporter.cli:main"
+
+[project.optional-dependencies]
+# Windows で timezone に "Asia/Tokyo" 等を指定する場合に必要
+tz = ["tzdata"]
+
+[tool.setuptools]
+packages = ["withper_exporter", "withper_exporter.sources"]
